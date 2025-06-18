@@ -84,6 +84,7 @@ public class CropChunk {
             return value;
         });
         blocks.put(pos.getBlockKey(), block);
+        System.out.println(blocks);
         Long[] positions = blocks.keySet().toArray(new Long[0]);
         chunk.getPersistentDataContainer().set(namespacedKey, PersistentDataType.LONG_ARRAY, ArrayUtils.toPrimitive(positions));
     }

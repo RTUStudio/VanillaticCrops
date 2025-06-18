@@ -40,6 +40,7 @@ public abstract class CustomListener extends RSListener<VanillaticCrops> {
     protected void onPlace(Player player, Location location, String id) {
         CropWorld world = world(location);
         if (world == null) return;
+        player.swingMainHand();
         world.addBlock(new CropBlock(getPlugin(), location.getWorld(), location.getChunk(), new BlockPos(location)));
     }
 
