@@ -3,9 +3,9 @@ package com.github.ipecter.rtustudio.vcrops.configuration;
 import com.github.ipecter.rtustudio.vcrops.VanillaticCrops;
 import com.github.ipecter.rtustudio.vcrops.crop.Crop;
 import com.google.common.io.Files;
-import kr.rtuserver.framework.bukkit.api.config.RSConfiguration;
-import kr.rtuserver.framework.bukkit.api.utility.platform.FileResource;
-import kr.rtuserver.yaml.configuration.ConfigurationSection;
+import kr.rtuserver.framework.bukkit.api.configuration.RSConfiguration;
+import kr.rtuserver.framework.bukkit.api.platform.FileResource;
+import kr.rtuserver.framework.yaml.configuration.ConfigurationSection;
 import lombok.Getter;
 
 import java.io.File;

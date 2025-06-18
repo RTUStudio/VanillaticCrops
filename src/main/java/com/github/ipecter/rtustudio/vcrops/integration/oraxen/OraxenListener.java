@@ -2,8 +2,6 @@ package com.github.ipecter.rtustudio.vcrops.integration.oraxen;
 
 import com.github.ipecter.rtustudio.vcrops.VanillaticCrops;
 import com.github.ipecter.rtustudio.vcrops.integration.abstracts.CustomListener;
-import com.nexomc.nexo.api.events.furniture.NexoFurnitureBreakEvent;
-import com.nexomc.nexo.api.events.furniture.NexoFurniturePlaceEvent;
 import io.th0rgal.oraxen.api.events.furniture.OraxenFurnitureBreakEvent;
 import io.th0rgal.oraxen.api.events.furniture.OraxenFurniturePlaceEvent;
 import org.bukkit.event.EventHandler;

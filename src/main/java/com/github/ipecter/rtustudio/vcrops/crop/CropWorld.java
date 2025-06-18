@@ -3,7 +3,8 @@ package com.github.ipecter.rtustudio.vcrops.crop;
 import com.github.ipecter.rtustudio.vcrops.VanillaticCrops;
 import com.github.ipecter.rtustudio.vcrops.data.BlockPos;
 import com.github.ipecter.rtustudio.vcrops.data.ChunkPos;
-import kr.rtuserver.framework.bukkit.api.scheduler.BukkitScheduler;
+import kr.rtuserver.framework.bukkit.api.core.scheduler.ScheduledTask;
+import kr.rtuserver.framework.bukkit.api.scheduler.CraftScheduler;
 import lombok.Getter;
 import lombok.ToString;
 import org.bukkit.*;
@@ -80,10 +81,10 @@ public class CropWorld {
     @Getter
     public class Scheduler implements Runnable {
 
-        private final BukkitScheduler scheduler;
+        private final ScheduledTask scheduler;
 
         public Scheduler(VanillaticCrops plugin) {
-            this.scheduler = BukkitScheduler.runTimer(plugin, this, 1, 1);
+            this.scheduler = CraftScheduler.runTimer(plugin, this, 1, 1);
         }
 
         @Override
