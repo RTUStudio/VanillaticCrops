@@ -1,0 +1,12 @@
+artichoke:
+  plant: nexo:croptopia_artichoke
+  seed: nexo:croptopia_artichoke_seed
+  stages:
+    - nexo:croptopia_artichoke_stage0
+    - nexo:croptopia_artichoke_stage1
+    - nexo:croptopia_artichoke_stage2
+    - nexo:croptopia_artichoke_stage3
+    - nexo:croptopia_artichoke_stage4
+    - nexo:croptopia_artichoke_stage5
+    - nexo:croptopia_artichoke_stage6
+    - nexo:croptopia_artichoke_stage7
