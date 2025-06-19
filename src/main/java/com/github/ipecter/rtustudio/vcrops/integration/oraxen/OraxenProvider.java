@@ -15,9 +15,11 @@ import java.util.Optional;
 public class OraxenProvider extends CustomProvider {
 
     @Override
-    public void place(Location location, String id) {
+    public Location place(Location location, String id) {
         NamespacedKey key = NamespacedKey.fromString(id);
-        OraxenFurniture.place(key == null ? id : key.getKey(), location, Rotation.NONE, BlockFace.UP);
+        Entity entity =  OraxenFurniture.place(key == null ? id : key.getKey(), location, Rotation.NONE, BlockFace.UP);
+        if (entity == null) return null;
+        return entity.getLocation();
     }
 
     @Override

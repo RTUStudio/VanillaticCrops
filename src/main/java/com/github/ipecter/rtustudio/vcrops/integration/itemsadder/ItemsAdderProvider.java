@@ -17,9 +17,11 @@ import java.util.Optional;
 public class ItemsAdderProvider extends CustomProvider {
 
     @Override
-    public void place(Location location, String id) {
+    public Location place(Location location, String id) {
         NamespacedKey key = NamespacedKey.fromString(id);
-        CustomFurniture.spawnPreciseNonSolid(key == null ? id : key.getKey(), location);
+        CustomFurniture cf = CustomFurniture.spawnPreciseNonSolid(key == null ? id : key.getKey(), location);
+        if (cf == null) return null;
+        return cf.getEntity().getLocation();
     }
 
     @Override

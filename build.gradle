@@ -53,6 +53,7 @@ dependencies {
 
     // RSFramework
     compileOnly "kr.rtuserver:framework-api:${rsf_version}"
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kyori Adventure
     compileOnly "net.kyori:adventure-platform-bukkit:4.3.4"
@@ -66,7 +67,7 @@ dependencies {
     // Custom Item Plugin
     compileOnly "dev.lone:api-itemsadder:4.0.10"
     compileOnly "io.th0rgal:oraxen:1.190.0"
-    compileOnly "com.nexomc:nexo:1.8.0"
+    //compileOnly "com.nexomc:nexo:1.8.0"
 
     // ThirdParty Plugins
     compileOnly "me.clip:placeholderapi:2.11.6"
@@ -101,6 +102,7 @@ java {
 
 tasks.withType(JavaCompile).configureEach {
     options.release = java_version as Integer
+    options.encoding = 'UTF-8'
 }
 
 processResources {

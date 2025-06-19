@@ -8,15 +8,18 @@ import org.bukkit.Particle;
 import org.bukkit.Rotation;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.ItemDisplay;
 
 import java.util.Optional;
 
 public class NexoProvider extends CustomProvider {
 
     @Override
-    public void place(Location location, String id) {
+    public Location place(Location location, String id) {
         NamespacedKey key = NamespacedKey.fromString(id);
-        NexoFurniture.place(key == null ? id : key.getKey(), location, Rotation.NONE,  BlockFace.UP);
+        ItemDisplay display = NexoFurniture.place(key == null ? id : key.getKey(), location, Rotation.NONE,  BlockFace.UP);
+        if (display == null) return null;
+        return display.getLocation();
     }
 
     @Override

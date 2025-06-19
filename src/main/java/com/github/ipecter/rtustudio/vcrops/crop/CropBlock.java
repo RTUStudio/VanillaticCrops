@@ -10,6 +10,8 @@ import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 
+import java.util.List;
+
 @Getter
 @ToString
 public class CropBlock {
@@ -20,6 +22,10 @@ public class CropBlock {
     private final World world;
     private final Chunk chunk;
     private final CropConfig config;
+
+    public CropBlock(VanillaticCrops plugin, Location location) {
+        this(plugin, location.getWorld(), location.getChunk(), new BlockPos(location));
+    }
 
     public CropBlock(VanillaticCrops plugin, World world, Chunk chunk, BlockPos position) {
         this.plugin = plugin;
@@ -32,6 +38,10 @@ public class CropBlock {
     }
 
     public boolean grow() {
+        return grow(1);
+    }
+
+    public boolean grow(int add) {
         Location loc = position.toLocation(world);
         String id = CustomFurnitures.to(loc);
         if (id == null) return false;
@@ -40,12 +50,13 @@ public class CropBlock {
             System.out.println(id);
             return false;
         }
-        if (crop.stages().getLast().equals(id)) return false;
-        for (int i = 0; i < crop.stages().size() - 1; i++) {
-            String stage = crop.stages().get(i);
+        List<String> stages = crop.stages();
+        if (stages.getLast().equals(id)) return false;
+        for (int i = 0; i < stages.size() - 1; i++) {
+            String stage = stages.get(i);
             if (id.equals(stage)) {
                 if (plugin.getCustomProvider().remove(loc)) {
-                    plugin.getCustomProvider().place(loc, crop.stages().get(i + 1));
+                    plugin.getCustomProvider().place(loc, stages.get(Math.min(i + add, stages.size() - 1)));
                     return true;
                 } else return false;
             }

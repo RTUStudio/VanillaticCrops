@@ -4,7 +4,7 @@ import org.bukkit.Location;
 
 public abstract class CustomProvider {
 
-    public abstract void place(Location location, String id);
+    public abstract Location place(Location location, String id);
     public abstract boolean remove(Location location);
 
 }

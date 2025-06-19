@@ -93,6 +93,10 @@ public class CropChunk {
         return (y - worldMinHeight) / 16;
     }
 
+    public CropBlock getBlock(long pos) {
+        return blocks.get(pos);
+    }
+
     public void addBlock(CropBlock block) {
         int index = index(block.getPosition().y());
         addBlock(index, block);

@@ -49,6 +49,7 @@ public class VanillaticCrops extends RSPlugin {
     }
 
     private void registerCustom() {
+        System.out.println(getFramework().isEnabledDependency("Nexo"));
         if (getFramework().isEnabledDependency("Nexo")) {
             this.customProvider = new NexoProvider();
             registerEvent(new NexoListener(this));

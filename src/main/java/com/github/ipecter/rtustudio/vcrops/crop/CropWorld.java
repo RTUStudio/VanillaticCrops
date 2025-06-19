@@ -49,6 +49,15 @@ public class CropWorld {
         }
     }
 
+    public CropBlock getBlock(long position) {
+        CropChunk cc = chunks.computeIfPresent(new BlockPos(position).getChunkKey(), (key, value) -> {
+            if (value.isEmpty()) return null;
+            return value;
+        });
+        if (cc == null) return null;
+        return cc.getBlock(position);
+    }
+
     public void addBlock(CropBlock block) {
         long position = block.getPosition().getChunkKey();
         chunks.compute(position, (key, value) -> {
